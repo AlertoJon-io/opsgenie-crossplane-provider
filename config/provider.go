@@ -17,8 +17,6 @@ limitations under the License.
 package config
 
 import (
-	// Note(turkenh): we are importing this to embed provider schema document
-	_ "embed"
 	"github.com/crossplane-contrib/provider-jet-opsgenie-provider/config/user"
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
