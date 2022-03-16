@@ -35,11 +35,6 @@ linters-settings:
     # simplify code: gofmt with `-s` option, true by default
     simplify: true
 
-#  goimports:
-#    # put imports beginning with prefix after 3rd-party packages;
-#    # it's a comma-separated list of prefixes
-#    local-prefixes: github.com/crossplane-contrib/provider-jet-template
-
   gocyclo:
     # minimal code complexity to report, 30 by default (but we recommend 10-20)
     min-complexity: 10
@@ -110,7 +105,6 @@ linters:
     - gocritic
     - interfacer
     - goconst
-    - goimports
     - gofmt  # We enable this as well as goimports for its simplify mode.
     - prealloc
     - golint
@@ -155,10 +149,6 @@ issues:
     - text: "SA3000:"
       linters:
       - staticcheck
-
-    - text: "k8s.io/api/core/v1"
-      linters:
-      - goimports
 
     # This is a "potential hardcoded credentials" warning. It's triggered by
     # any variable with 'secret' in the same, and thus hits a lot of false
