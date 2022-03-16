@@ -1,4 +1,4 @@
-apiVersion: template.jet.crossplane.io/v1alpha1
+apiVersion: opsgenie-provider.jet.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
   name: default
@@ -7,5 +7,5 @@ spec:
     source: Secret
     secretRef:
       name: example-creds
-      namespace: crossplane-system
+      namespace: default
       key: credentials
