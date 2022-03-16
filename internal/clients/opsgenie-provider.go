@@ -32,9 +32,9 @@ import (
 
 const (
 	apiKey = "api_key"
-	apiUrl = "api_url"
+	apiURL = "api_url"
 
-	envApiKey = "OPSGENIE_API_KEY"
+	envAPIKey = "OPSGENIE_API_KEY"
 )
 
 const (
@@ -85,11 +85,11 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 
 		// set provider configuration
 		ps.Configuration = map[string]interface{}{
-			"api_url": opsgenieProviderCreds[apiUrl],
+			"api_url": opsgenieProviderCreds[apiURL],
 		}
 		// set environment variables for sensitive provider configuration
 		ps.Env = []string{
-			fmt.Sprintf(fmtEnvVar, envApiKey, opsgenieProviderCreds[apiKey]),
+			fmt.Sprintf(fmtEnvVar, envAPIKey, opsgenieProviderCreds[apiKey]),
 		}
 		return ps, nil
 	}
