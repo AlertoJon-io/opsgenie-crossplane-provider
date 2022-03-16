@@ -19,7 +19,6 @@ package config
 import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
-	"github.com/crossplane-contrib/provider-jet-opsgenie-provider/config/team"
 	"github.com/crossplane-contrib/provider-jet-opsgenie-provider/config/user"
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
@@ -46,13 +45,11 @@ func GetProvider() *tjconfig.Provider {
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
 		tjconfig.WithDefaultResourceFn(defaultResourceFn),
 		tjconfig.WithIncludeList([]string{
-			"opsgenie_team$",
 			"opsgenie_user$",
 		}))
 
 	for _, configure := range []func(provider *tjconfig.Provider){
 		// add custom config functions
-		team.Configure,
 		user.Configure,
 	} {
 		configure(pc)
