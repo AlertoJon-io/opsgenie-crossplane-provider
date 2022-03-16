@@ -17,7 +17,7 @@ limitations under the License.
 package config
 
 import (
-	_ "embed"
+	_ "embed" // import embed package to register the provider
 	"github.com/crossplane-contrib/provider-jet-opsgenie-provider/config/user"
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
