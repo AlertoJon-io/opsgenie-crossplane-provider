@@ -1,0 +1,12 @@
+apiVersion: user.opsgenie-provider.jet.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: hello-crossplane
+spec:
+  forProvider:
+    fullName: "Hello Crossplane"
+    role: "admin"
+    username: "hello-crossplane"
+  deletionPolicy: Delete
+  providerConfigRef:
+    name: default
