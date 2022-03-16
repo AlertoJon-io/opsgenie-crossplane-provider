@@ -1,4 +1,4 @@
-apiVersion: user.opsgenie-provider.jet.crossplane.io/v1alpha1
+apiVersion: opsgenie.opsgenie-provider.jet.crossplane.io/v1alpha1
 kind: User
 metadata:
   name: hello-crossplane
