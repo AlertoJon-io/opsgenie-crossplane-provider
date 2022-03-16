@@ -22,7 +22,18 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/opsgenie/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/alert/v1alpha1"
+	v1alpha1api "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/api/v1alpha1"
+	v1alpha1custom "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/custom/v1alpha1"
+	v1alpha1email "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/email/v1alpha1"
+	v1alpha1incident "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/incident/v1alpha1"
+	v1alpha1integration "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/integration/v1alpha1"
+	v1alpha1notification "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/notification/v1alpha1"
+	v1alpha1opsgenie "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/opsgenie/v1alpha1"
+	v1alpha1schedule "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/schedule/v1alpha1"
+	v1alpha1service "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/service/v1alpha1"
+	v1alpha1team "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/team/v1alpha1"
+	v1alpha1user "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/user/v1alpha1"
 	v1alpha1apis "github.com/crossplane-contrib/provider-jet-opsgenie-provider/apis/v1alpha1"
 )
 
@@ -30,6 +41,17 @@ func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1api.SchemeBuilder.AddToScheme,
+		v1alpha1custom.SchemeBuilder.AddToScheme,
+		v1alpha1email.SchemeBuilder.AddToScheme,
+		v1alpha1incident.SchemeBuilder.AddToScheme,
+		v1alpha1integration.SchemeBuilder.AddToScheme,
+		v1alpha1notification.SchemeBuilder.AddToScheme,
+		v1alpha1opsgenie.SchemeBuilder.AddToScheme,
+		v1alpha1schedule.SchemeBuilder.AddToScheme,
+		v1alpha1service.SchemeBuilder.AddToScheme,
+		v1alpha1team.SchemeBuilder.AddToScheme,
+		v1alpha1user.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 	)
 }

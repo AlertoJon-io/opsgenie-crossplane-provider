@@ -18,8 +18,6 @@ package config
 
 import (
 	_ "embed" // import embed package to register the provider
-	"github.com/crossplane-contrib/provider-jet-opsgenie-provider/config/user"
-
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -37,20 +35,14 @@ func GetProvider() *tjconfig.Provider {
 	defaultResourceFn := func(name string, terraformResource *schema.Resource, opts ...tjconfig.ResourceOption) *tjconfig.Resource {
 		r := tjconfig.DefaultResource(name, terraformResource)
 		// Add any provider-specific defaulting here. For example:
-		//   r.ExternalName = tjconfig.IdentifierFromProvider
+		r.ExternalName = tjconfig.IdentifierFromProvider
 		return r
 	}
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
-		tjconfig.WithDefaultResourceFn(defaultResourceFn),
-		tjconfig.WithIncludeList([]string{
-			"opsgenie_user$",
-		}))
+		tjconfig.WithDefaultResourceFn(defaultResourceFn))
 
-	for _, configure := range []func(provider *tjconfig.Provider){
-		// add custom config functions
-		user.Configure,
-	} {
+	for _, configure := range []func(provider *tjconfig.Provider){} {
 		configure(pc)
 	}
 
